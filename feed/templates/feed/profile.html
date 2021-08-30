@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{%load thumbnail%}
+{% block title %}Your profile page{% endblock %}
+
+{% block body%}
+    <div class="bg-white flex flex-row flex-wrap p-3">
+        <div class="w-screen align-center">
+    <div class="rounded-lg shadow-lg bg-gray-600 w-full flex flex-row flex-wrap p-3 antialiased" style="
+        background-image: url('https://images.unsplash.com/photo-1578836537282-3171d77f8632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: multiply;
+    ">
+        <div class="md:w-1/3 w-full">
+            {% thumbnail user.profile.image "600x600" crop="center" as im %}
+                    <img class="rounded-lg shadow-lg antialiased" src="{{ im.url }}" alt="">
+            {% endthumbnail %} 
+        </div>
+        <div class="md:w-2/3 w-full px-3 flex flex-row flex-wrap">
+            <div class="w-full text-right text-gray-700 font-semibold relative pt-3 md:pt-4 cursor-default">
+                <div class="text-3xl text-white leading-tight">{{ user.username }}</div>
+                <div class="text-normal text-gray-300 hover:text-gray-400"><span class="border-b border-dashed border-gray-500 pb-1">{{user.profile.position}}</span></div>
+                <div class="text-1xl text-white leading-tight pt-4">{{ user.get_full_name}}</div>
+                <div class="text-1xl text-white leading-tight pt-1 pb-2">email: {{ user.email }}</div>
+                <div class="text-sm text-gray-300 hover:text-gray-400 md:absolute pt-0 md:pt-0  right-0">Last Login: <b>{{ user.last_login }}</b></div>
+                <div class="p-0.5  mt-2 space-x-1 space-y-2 align-right md:absolute pt-3 md:pt-0 bottom-2 right-0">
+                    <a href="{% url 'profiles:edit_profile' user.id %}" class="btn btn-outline-secondary bg-gray-700 px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-gray-100 rounded-full hover:shadow-2xl hover:bg-gray-800">Edit profile</a>   
+                </div>  
+            </div>
+        </div>
+    </div> 
+        </div>
+    </div>
+{%endblock %}
