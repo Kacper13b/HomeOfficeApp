@@ -9,6 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='profile')
     image = ImageField(upload_to='profiles')
     position = models.CharField(max_length=100)
+    manager = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='manager')
 
     def __str__(self):
         return self.user.username

@@ -30,5 +30,5 @@ class ProfileEditPageView(generic.UpdateView):
     model = Profile
     template_name = 'feed/editprofile_page.html'
     #add user field
-    fields = ['position', 'image']
+    fields = ['position', 'image', 'manager']
     success_url = '/'

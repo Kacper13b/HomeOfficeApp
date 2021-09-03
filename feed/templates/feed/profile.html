@@ -22,6 +22,7 @@
                 <div class="text-normal text-gray-300 hover:text-gray-400"><span class="border-b border-dashed border-gray-500 pb-1">{{user.profile.position}}</span></div>
                 <div class="text-1xl text-white leading-tight pt-4">{{ user.get_full_name}}</div>
                 <div class="text-1xl text-white leading-tight pt-1 pb-2">email: {{ user.email }}</div>
+                <div class="text-1xl text-white leading-tight pt-1 pb-2">Manager: {{ user.profile.manager }}</div>
                 <div class="text-sm text-gray-300 hover:text-gray-400 md:absolute pt-0 md:pt-0  right-0">Last Login: <b>{{ user.last_login }}</b></div>
                 <div class="p-0.5  mt-2 space-x-1 space-y-2 align-right md:absolute pt-3 md:pt-0 bottom-2 right-0">
                     <a href="{% url 'profiles:edit_profile' user.id %}" class="btn btn-outline-secondary bg-gray-700 px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-gray-100 rounded-full hover:shadow-2xl hover:bg-gray-800">Edit profile</a>   
